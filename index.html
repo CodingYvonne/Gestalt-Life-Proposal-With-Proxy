@@ -301,8 +301,10 @@
         const IMAGEN_MODEL = "imagen-4.0-generate-001";
         // 🚨 請將您新申請的 Gemini API Key 貼到下方的雙引號內。
         // NOTE: 如果使用 Vercel/Netlify 代理服務，這裡的 apiKey 留空。
+        // *******************************************************************
         const apiKey = ""; 
-        const LLM_API_URL = '/api/chat-proxy'; // 👈 呼叫代理服務
+        // *******************************************************************
+        const LLM_API_URL = '/api/chat-proxy'; // 👈 LLM 呼叫代理服務
         const IMAGEN_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${IMAGEN_MODEL}:predict?key=${apiKey}`; // 圖片功能需使用金鑰，但需注意風險
 
         const SYSTEM_PROMPT = "你是一位完形治療引導者（Gestalt Facilitator）。你的任務是根據使用者描述的煩惱或當下感受，給出一個**簡短、專注於此刻覺察**的回應。你的回應必須：1. 使用**繁體中文**。2. **不給予建議或解釋**。3. 僅引導使用者將注意力帶回**當下的感官體驗、情緒、或身體感受**。4. 使用**『我』語言**（例如：我聽到你說...）來回應，展現臨在。你的回應風格是溫和、專注於當下的。";
@@ -724,7 +726,7 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 // 注意：這裡呼叫 Proxy Endpoint
-                body: JSON.stringify(payload)
+                body: JSON.stringify(palettePayload)
             };
 
             try {
